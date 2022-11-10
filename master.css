@@ -24,16 +24,16 @@ body {
 }
 
 .nav {
-    background-color: #558055
-
-    ;
+    background-color: #d2d6a8;
 
     width: 100%;
     height: 10vh;
 }
 
 .menu {
-    background-color: #d2d6a8;
+
+    background-color: #558055;
+
 
     width: 100%;
     height: 10vh;

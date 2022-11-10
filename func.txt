@@ -3,3 +3,12 @@ Elements:
 > Inputs (create func.)
 > Variables (receive func.)
 > Grouped Elements (control func.)
+
+ALL ELEMENTS:
+> Have HTML
+> Have width & height
+
+
+Element Styling:
+> Set a default element style (ie. color = white by default)
+> So that if you remove the style it will go to the default

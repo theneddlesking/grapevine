@@ -21,10 +21,11 @@
 
     <div class="menu">
         <div class="menu-bar">
-            
-           
             <div class="menu-item">
-                <button id="add-button">Add</button>
+                <select name="element-select" id="element-select">
+                    <option value="hello">Select an element</option>
+                </select>
+                <button name="add-element" id="add-button">Add</button>
             </div>
 
             <div class="menu-item">
@@ -39,17 +40,28 @@
     </div>
 </body>
 
-<script src="./moduleArea.js"></script>
+<script src="./ui/moduleArea.js"></script>
 
-<script src="./draggable.js"></script>
+<script src="./ui/draggable.js"></script>
 
-
-<script src="./element.js"></script>
-
-<script src="./elements.js"></script>
+<script src="./element_styles/elementStyle.js"></script>
+<script src="./element_styles/elementStyles.js"></script>
 
 
-<script src="./menu.js"></script>
+<script src="./elements/element.js"></script>
 
+<script src="./elements/baseElement.js"></script>
+<script src="./elements/baseElements.js"></script>
+
+<script src="./elements/elements.js"></script>
+
+<script src="./ui/menu.js"></script>
+
+<script src="./modules/module.js"></script>
+<script src="./modules/modules.js"></script>
+
+<script src="./elements/renderedElement.js"></script>
+
+<script src="./client.js"></script>
 
 </html>

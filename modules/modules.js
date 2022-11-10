@@ -1,0 +1,1 @@
+const TestModule = new Module();

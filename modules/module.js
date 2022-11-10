@@ -6,8 +6,11 @@ class Module {
         };
 
         //presentation and manipulation of app data
-        this.elements = {
+        this.elements = [];
+    }
 
-        };
+    addElement(element) {
+        this.elements.push(element);
+        console.log(this.elements);
     }
 }
