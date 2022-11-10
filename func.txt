@@ -1,0 +1,5 @@
+Elements:
+> Natives (no func.)
+> Inputs (create func.)
+> Variables (receive func.)
+> Grouped Elements (control func.)
