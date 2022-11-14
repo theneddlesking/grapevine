@@ -1,9 +1,6 @@
 const ElementSelect = document.getElementById("element-select");
 const AddButton = document.getElementById("add-button");
-const DeleteModeButton = document.getElementById("delete-mode-button");
 const SideMenu = document.getElementById("side-menu");
-
-let deleteMode = false;
 
 const populateElementSelect = () => {
     const createElementOption = (element) => {
@@ -18,10 +15,6 @@ const populateElementSelect = () => {
 }
 
 populateElementSelect();
-
-DeleteModeButton.onclick = () => {
-    deleteMode = !deleteMode;
-}
 
 AddButton.onclick = () => {
     if (ElementSelect.selectedIndex == 0) {

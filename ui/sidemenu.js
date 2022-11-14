@@ -14,6 +14,7 @@ const openSideMenu = (renderedElement) => {
 
     DeleteElementButton.onclick = () => {
         renderedElement.delete();
+        makeSideMenuVisible(false);
     }
 
 }

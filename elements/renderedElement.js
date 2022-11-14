@@ -1,5 +1,5 @@
 class RenderedElement {
-    constructor(name, styles, scripts, render) {
+    constructor(name, styles, scripts, render, parent) {
         this.name = name;
 
         this.styles = styles;
@@ -7,6 +7,8 @@ class RenderedElement {
         this.scripts = scripts;
 
         this.render = render;
+
+        this.parent = parent;
     }
 
     onclick() {
@@ -15,6 +17,10 @@ class RenderedElement {
 
     //TEMPORARY
     delete() {
-        this.render.parentElement.removeChild(this.render);
+        //remove from render
+        // this.render.parentElement.removeChild(this.render);
+        
+        //remove from app tree
+        this.parent.removeChild(this);
     }
 }
