@@ -8,4 +8,13 @@ class RenderedElement {
 
         this.render = render;
     }
+
+    onclick() {
+        openSideMenu(this);
+    }
+
+    //TEMPORARY
+    delete() {
+        this.render.parentElement.removeChild(this.render);
+    }
 }

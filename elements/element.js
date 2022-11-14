@@ -29,13 +29,15 @@ class Element {
         //apply CSS styling to the element
         this.applyStyles(element);
 
-        //make the element draggable so it can be positioned by the user
-        draggable(element);
-
         //display the element
         this.parent.appendChild(element);
 
+        const renderedElement = new RenderedElement(this.name, this.styles, this.scripts, element);
+
+        //make the element draggable so it can be positioned by the user
+        draggable(element, renderedElement);
+
         //give current module scope over the element
-        MyClient.currentModule.addElement(new RenderedElement(this.name, this.styles, this.scripts, element));
+        MyClient.currentApp.addElement(renderedElement);
     }
 }

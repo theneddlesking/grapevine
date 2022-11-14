@@ -63,3 +63,15 @@ body {
     height: 50%;
     padding-left: 5%;
 }
+
+.side-menu {
+    position: absolute;
+    right: 0%;
+    width: 25%;
+    height: 100%;
+    background-color: red;
+}
+
+.hide {
+    display: none;
+}

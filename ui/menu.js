@@ -1,6 +1,7 @@
 const ElementSelect = document.getElementById("element-select");
 const AddButton = document.getElementById("add-button");
 const DeleteModeButton = document.getElementById("delete-mode-button");
+const SideMenu = document.getElementById("side-menu");
 
 let deleteMode = false;
 

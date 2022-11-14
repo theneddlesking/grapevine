@@ -1,9 +1,10 @@
 class Client {
     constructor() {
-        this.currentModule = undefined;
+        this.currentApp = undefined;
+
     }
 }
 
 const MyClient = new Client();
 
-MyClient.currentModule = TestModule;
+MyClient.currentApp = new Element("Current App", [], [], undefined)
