@@ -20,28 +20,9 @@ class Element {
         this.children = [];
     }
 
-    applyStyles(element) {
-        this.styles.forEach(style => style.apply(element));
-    }
-
-    applyScripts(element) {
-        this.scripts.forEach(script => script.apply(element));
-    }
-
-    applyProperties(element) {
-        this.properties.forEach(property => property.apply(element));
-    }
-
     create() {
         //create element HTML
         const element = this.render();
-
-        //apply any HTML / other properties to the element (ie. textContent)
-        this.applyProperties(element);
-
-
-        //apply CSS styling to the element
-        this.applyStyles(element);
 
         //element obj after being rendered
         const renderedElement = new RenderedElement(this.name, this.styles, this.scripts, this.properties, element, this.parent);

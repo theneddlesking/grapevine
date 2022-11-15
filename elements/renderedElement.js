@@ -6,11 +6,35 @@ class RenderedElement {
 
         this.scripts = scripts;
 
-        this.properties = properties;
+        //UNRENDERED properties 
+        this.defaultProperties = properties;
+
+        //actual RENDERED properties
+        this.properties = [];
 
         this.render = render;
 
         this.parent = parent;
+
+        this.init();
+    }
+
+    init() {
+        this.applyProperties();
+        this.applyStyles();
+        this.applyScripts();
+    }
+
+    applyStyles() {
+        this.styles.forEach(style => style.apply(this.render));
+    }
+
+    applyScripts() {
+        this.scripts.forEach(script => script.apply(this.render));
+    }
+
+    applyProperties() {
+        this.defaultProperties.forEach(property => property.init(this.render, this.properties));
     }
 
     onclick() {

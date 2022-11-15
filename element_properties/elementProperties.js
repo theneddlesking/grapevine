@@ -1,33 +1,21 @@
 class TextContentProp extends ElementProperty {
     constructor(defaultText) {
-        super();
-
-        this.text = defaultText;
-
-        this.element = undefined;
+        super(defaultText);
     }
 
-    setProp(text) {
-        this.text = text;
-
-        this.apply(this.element);
-    }
-
-    apply(element) {
-        this.element = element;
-
-        element.textContent = this.text;
+    //apply new value to rendered element
+    apply(element, text) {
+        element.textContent = text;
     }
 
     //render element for the side menu
-    render() {
+    render(prop) {
         const element = document.createElement("input");
         
-        element.value = this.text;
+        element.value = prop.value;
 
-        const self = this;
         element.onchange = () => { 
-            self.setProp(element.value);
+            prop.setProp(element.value);
         }
 
         return element;

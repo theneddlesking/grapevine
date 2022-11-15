@@ -27,7 +27,7 @@ const openSideMenu = (renderedElement) => {
     elementProps.innerHTML = ""; //Sketch implementation but prolly fine
 
     for (let prop of renderedElement.properties) {
-        elementProps.appendChild(prop.render());
+        elementProps.appendChild(prop.renderOnSideMenu(renderedElement));
     }
 
 }
