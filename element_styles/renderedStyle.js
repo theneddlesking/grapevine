@@ -1,26 +1,13 @@
-class RenderedStyle {
+class RenderedStyle extends RenderedData {
     constructor(value, style, element) {
-        this.value = value;
-        this.defaultStyle = style;
-        this.element = element;
-
-        //initialise style
-        this.setStyle(this.value);
-    }
-
-    renderOnSideMenu(renderedElement) {
-        return this.defaultStyle.render(this, renderedElement);
+        super(value, style, element);
     }
 
     setStyle(value) {
-        //set new value
-        this.value = value;
-
-        //apply the new style
-        this.apply();
+        this.setData(value);
     }
 
     apply() {
-        this.defaultStyle.apply(this.element, this.value);
+        this.renderData();
     }
 }

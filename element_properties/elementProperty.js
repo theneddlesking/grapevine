@@ -1,12 +1,5 @@
-class ElementProperty {
+class ElementProperty extends ElementData {
     constructor(initValue) {
-        this.initValue = initValue;
-    }
-
-    init(element, renderedProperties) {
-        //create instance of renderedProperty
-        const renderedProp = new RenderedProperty(this.initValue, this, element);
-
-        renderedProperties.push(renderedProp);
+        super(initValue, RenderedProperty);
     }
 }
