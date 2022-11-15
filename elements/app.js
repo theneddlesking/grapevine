@@ -1,6 +1,6 @@
 class App extends Element {
-    constructor(name, styles, scripts) {
-        super(name, styles, scripts, null);
+    constructor(name, properties, styles, scripts) {
+        super(name, properties, styles, scripts, null);
 
         this.render = document.getElementById("main-module");
     }

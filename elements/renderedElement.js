@@ -2,15 +2,19 @@ class RenderedElement {
     constructor(name,  properties, styles, scripts, render, parent) {
         this.name = name;
 
-        this.styles = styles;
+        //UNRENDERED styles
+        this.defaultStyles = styles;
 
-        this.scripts = scripts;
+        //RENDERED styles
+        this.styles = [];
 
         //UNRENDERED properties 
         this.defaultProperties = properties;
 
-        //actual RENDERED properties
+        //RENDERED properties
         this.properties = [];
+
+        this.scripts = scripts;
 
         this.render = render;
 
@@ -26,7 +30,7 @@ class RenderedElement {
     }
 
     applyStyles() {
-        this.styles.forEach(style => style.apply(this.render));
+        this.defaultStyles.forEach(style => style.init(this.render, this.styles));
     }
 
     applyScripts() {

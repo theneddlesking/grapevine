@@ -22,12 +22,24 @@ const openSideMenu = (renderedElement) => {
     }
 
 
+    //PROPERTIES
+
     const elementProps = document.getElementById("props-list");
 
     elementProps.innerHTML = ""; //Sketch implementation but prolly fine
 
     for (let prop of renderedElement.properties) {
         elementProps.appendChild(prop.renderOnSideMenu(renderedElement));
+    }
+
+    //STYLES
+
+    const elementStyles = document.getElementById("styles-list");
+
+    elementStyles.innerHTML = ""; //Sketch implementation but prolly fine
+
+    for (let style of renderedElement.styles) {
+        elementStyles.appendChild(style.renderOnSideMenu(renderedElement));
     }
 
 }
