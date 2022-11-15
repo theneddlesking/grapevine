@@ -13,13 +13,13 @@ class BoxElement extends BaseElement {
 class HeadingElement extends BaseElement {
     constructor(name, styles, scripts, parent) {
         super(name, styles, scripts, parent);
+
+        this.properties = [new TextContentProp("Heading")];
     }
 
     render() {
         const element = document.createElement("h1");
 
-        element.textContent = "Heading";
-        
         return element;
     }
 }

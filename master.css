@@ -75,3 +75,13 @@ body {
 .hide {
     display: none;
 }
+
+.side-menu-nav {
+    height: 5%; 
+}
+
+.side-menu-content {
+    height: 90%;
+    width: 100%;
+    background-color: yellow;
+}

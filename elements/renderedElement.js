@@ -1,10 +1,12 @@
 class RenderedElement {
-    constructor(name, styles, scripts, render, parent) {
+    constructor(name, styles, scripts, properties, render, parent) {
         this.name = name;
 
         this.styles = styles;
 
         this.scripts = scripts;
+
+        this.properties = properties;
 
         this.render = render;
 

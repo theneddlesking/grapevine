@@ -1,7 +1,7 @@
 //this is specifically the template of the element that generates the elements that display
 //NOT THE ELEMENT THAT IS DISPLAYED
 class Element {
-    constructor(name = "Unnamed Element", styles = [], scripts = [], parent = MyClient.currentApp) {
+    constructor(name = "Unnamed Element", styles = [], scripts = [], properties = [], parent = MyClient.currentApp) {
         this.name = name;
 
         //styling for the element
@@ -9,6 +9,9 @@ class Element {
 
         //functionality for the element
         this.scripts = scripts;
+
+        //inherient values unique to this element
+        this.properties = properties;
 
         //parent element
         this.parent = parent;
@@ -25,15 +28,23 @@ class Element {
         this.scripts.forEach(script => script.apply(element));
     }
 
+    applyProperties(element) {
+        this.properties.forEach(property => property.apply(element));
+    }
+
     create() {
         //create element HTML
         const element = this.render();
+
+        //apply any HTML / other properties to the element (ie. textContent)
+        this.applyProperties(element);
+
 
         //apply CSS styling to the element
         this.applyStyles(element);
 
         //element obj after being rendered
-        const renderedElement = new RenderedElement(this.name, this.styles, this.scripts, element, this.parent);
+        const renderedElement = new RenderedElement(this.name, this.styles, this.scripts, this.properties, element, this.parent);
 
         //make the element draggable so it can be positioned by the user
         draggable(element, renderedElement);

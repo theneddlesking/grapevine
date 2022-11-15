@@ -11,12 +11,26 @@
 <body>
 
     <div class="side-menu hide" id="side-menu">
-        <button onclick="makeSideMenuVisible(false)">Hide</button>
 
-        <h3>My Element</h3>
+        <div class="side-menu-nav">
+            <button onclick="makeSideMenuVisible(false)">Hide</button>
+            <button onclick="setSideMenuContent('props')">Properties</button>
+            <button onclick="setSideMenuContent('styles')">Styles</button>
+            <button onclick="setSideMenuContent('scripts')">Scripts</button>
+        </div>
 
-        <button id="delete-element-button">Delete Element</button>
+        <div class="side-menu-content" id="element-props">
+            <h3>Properties</h3>
+            <button id="delete-element-button">Delete Element</button>
+        </div>
 
+        <div class="side-menu-content hide" id="element-styles">
+            <h3>Styles</h3>
+        </div>
+
+        <div class="side-menu-content hide" id="element-scripts">
+            <h3>Scripts</h3>
+        </div>
     </div>
 
 
@@ -39,7 +53,6 @@
             </div>
 
             <div class="menu-item">
-                <button id="delete-mode-button">Delete Mode</button>
             </div>
 
         </div>
@@ -65,7 +78,8 @@
 <script src="./elements/baseElement.js"></script>
 <script src="./elements/baseElements.js"></script>
 
-
+<script src="./element_properties/elementProperty.js"></script>
+<script src="./element_properties/elementProperties.js"></script>
 
 <script src="./elements/renderedElement.js"></script>
 

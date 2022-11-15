@@ -8,14 +8,39 @@ const makeSideMenuVisible = (visibility = true) => {
     }
 }
 
-
 const openSideMenu = (renderedElement) => {
     makeSideMenuVisible();
 
     DeleteElementButton.onclick = () => {
         renderedElement.delete();
+
+        //hide menu so that you can't access the deleted element
         makeSideMenuVisible(false);
+
+        //remove onclick functionality to remove reference to the renderedElement
+        DeleteElementButton.onclick = null;
+    }
+
+
+    const elementProps = document.getElementById("element-props");
+
+    elementProps.innerHTML = ""; //Sketch implementation but prolly fine
+
+    for (let prop of renderedElement.properties) {
+        elementProps.appendChild(prop.render());
     }
 
 }
 
+const setSideMenuContent = (contentName) => {
+
+    //show correct content area
+    const contentNames = ["props", "styles", "scripts"];
+    for (let cName of contentNames) {
+        if (cName === contentName) {
+            document.getElementById(`element-${cName}`).classList.remove("hide");
+        } else {
+            document.getElementById(`element-${cName}`).classList.add("hide");
+        }
+    }
+}
