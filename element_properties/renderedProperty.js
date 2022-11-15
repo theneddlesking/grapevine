@@ -24,11 +24,3 @@ class RenderedProperty {
         this.defaultProperty.apply(this.element, this.value);
     }
 }
-
-/*
-3 Levels of properties
-----------------------
-1. The actual property definition (TextContentProp lets you alter the TextContent of an element)
-2. The assignment of properties to unrendered elements
-3. The application of properties on rendered elements
-*/

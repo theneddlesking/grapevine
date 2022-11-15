@@ -1,7 +1,7 @@
 //this is specifically the template of the element that generates the elements that display
 //NOT THE ELEMENT THAT IS DISPLAYED
 class Element {
-    constructor(name = "Unnamed Element", styles = [], scripts = [], properties = [], parent = MyClient.currentApp) {
+    constructor(name = "Unnamed Element", properties = [], styles = [], scripts = [], parent = MyClient.currentApp) {
         this.name = name;
 
         //styling for the element
@@ -25,7 +25,7 @@ class Element {
         const element = this.render();
 
         //element obj after being rendered
-        const renderedElement = new RenderedElement(this.name, this.styles, this.scripts, this.properties, element, this.parent);
+        const renderedElement = new RenderedElement(this.name, this.properties, this.styles, this.scripts, element, this.parent);
 
         //make the element draggable so it can be positioned by the user
         draggable(element, renderedElement);

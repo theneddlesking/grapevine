@@ -1,6 +1,6 @@
 class BoxElement extends BaseElement {
-    constructor(name, styles, scripts, parent) {
-        super(name, styles, scripts, parent);
+    constructor(name, properties, styles, scripts, parent) {
+        super(name, properties, styles, scripts, parent);
     }
 
     render() {
@@ -11,10 +11,8 @@ class BoxElement extends BaseElement {
 }
 
 class HeadingElement extends BaseElement {
-    constructor(name, styles, scripts, parent) {
-        super(name, styles, scripts, parent);
-
-        this.properties = [new TextContentProp("Heading")];
+    constructor(name, properties, styles, scripts, parent) {
+        super(name, properties, styles, scripts,  parent);
     }
 
     render() {

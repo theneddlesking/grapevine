@@ -10,12 +10,22 @@ class TextContentProp extends ElementProperty {
 
     //render element for the side menu
     render(prop) {
-        const element = document.createElement("input");
-        
-        element.value = prop.value;
+        const element = document.createElement("div");
+        const input = document.createElement("input");
+        const label = document.createElement("label");
 
-        element.onchange = () => { 
-            prop.setProp(element.value);
+        element.style.display = "flex";
+        element.style.justifyContent = "space-around";
+
+        element.appendChild(label);
+        element.appendChild(input);
+
+        label.textContent = "Text";
+
+        input.value = prop.value;
+
+        input.onchange = () => { 
+            prop.setProp(input.value);
         }
 
         return element;

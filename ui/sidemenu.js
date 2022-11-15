@@ -22,7 +22,7 @@ const openSideMenu = (renderedElement) => {
     }
 
 
-    const elementProps = document.getElementById("element-props");
+    const elementProps = document.getElementById("props-list");
 
     elementProps.innerHTML = ""; //Sketch implementation but prolly fine
 

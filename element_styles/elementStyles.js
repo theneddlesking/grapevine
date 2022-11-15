@@ -18,3 +18,13 @@ class BackgroundColorStyle extends ElementStyle {
         element.style.backgroundColor = this.styles.color;
     }
 }
+
+class ColorStyle extends ElementStyle {
+    constructor(color) {
+        super({color});
+    }
+
+    apply(element) {
+        element.style.color = this.styles.color;
+    }
+}
