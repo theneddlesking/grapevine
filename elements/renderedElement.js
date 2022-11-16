@@ -14,6 +14,10 @@ class RenderedElement {
         //RENDERED properties
         this.properties = [];
 
+        //UNRENDERED scripts
+        this.defaultScripts = scripts;
+        
+        //RENDERED scripts
         this.scripts = scripts;
 
         this.render = render;
@@ -21,6 +25,13 @@ class RenderedElement {
         this.parent = parent;
 
         this.rootElement = parent == MyClient.currentApp;
+
+        //name of all styles and properties owned by this element for quick lookup
+        this.names = {
+            styles : new Set([]),
+            properties : new Set([]),
+            scripts : new Set([]),
+        }
 
         this.init();
     }
@@ -35,16 +46,39 @@ class RenderedElement {
         }
     }
 
+    getMissingStyles(known) {
+        return known.filter(style => !this.hasStyle(style));
+    }
+
+    hasStyle(style) {
+        return this.names.styles.has(style.name);
+    }
+
+    applyProperty(property) {
+        this.names.properties.add(property.name);
+        property.init(this.render, this.properties);
+    }
+
+    applyScript(script) {
+        this.names.scripts.add(script.name);
+        script.init(this.render, this.scripts);
+    }
+
+    applyStyle(style) {
+        this.names.styles.add(style.name);
+        style.init(this.render, this.styles);
+    }
+
     applyStyles() {
-        this.defaultStyles.forEach(style => style.init(this.render, this.styles));
+        this.defaultStyles.forEach(style => this.applyStyle(style));
     }
 
     applyScripts() {
-        this.scripts.forEach(script => script.apply(this.render));
+        this.defaultScripts.forEach(script => this.applyScript(script));
     }
 
     applyProperties() {
-        this.defaultProperties.forEach(property => property.init(this.render, this.properties));
+        this.defaultProperties.forEach(property => this.applyProperty(property));
     }
 
     onclick() {
@@ -54,6 +88,10 @@ class RenderedElement {
     //element should only be draggable if it is a direct child
     makeDraggable() {
         draggable(this.render, this);
+    }
+
+    makeUndraggable() {
+        undraggable(this.render);
     }
 
     //potentially TEMP but I don't think so

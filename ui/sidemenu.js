@@ -42,6 +42,27 @@ const openSideMenu = (renderedElement) => {
         elementStyles.appendChild(style.renderOnSideMenu(renderedElement));
     }
 
+    const StyleSelect = document.getElementById("style-select");
+    const AddStyleButton = document.getElementById("add-style-button");
+
+    StyleSelect.innerHTML = `<option value="">Select a style</option>`;
+
+    const missingStyles = renderedElement.getMissingStyles(KnownStyles);
+
+    populateSelect(missingStyles, StyleSelect);
+
+    AddStyleButton.onclick = () => {
+        const style = missingStyles[StyleSelect.selectedIndex - 1];
+
+        if (renderedElement.hasStyle(style) || style === undefined) {
+            return;
+        }
+
+        renderedElement.applyStyle(style);
+        //re render with new style added
+        elementStyles.appendChild(renderedElement.styles[renderedElement.styles.length - 1].renderOnSideMenu(renderedElement));
+    }
+
 }
 
 const setSideMenuContent = (contentName) => {

@@ -1,7 +1,8 @@
 class ElementData {
-    constructor(initValue, renderClass) {
+    constructor(initValue, renderClass, name) {
         this.initValue = initValue;
         this.renderClass = renderClass;
+        this.name = name;
     }
 
     init(element, renderedDataArray) {
@@ -19,5 +20,13 @@ class ElementData {
         
         //default element data (works for native styles)
         return "";
+    }
+
+    addToElement(renderedElement) {
+        
+    }
+
+    removeFromElement() {
+
     }
 }

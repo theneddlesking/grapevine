@@ -1,6 +1,6 @@
 class SizeStyle extends ElementStyle {
     constructor(width, height) {
-        super({width, height});
+        super({width, height}, "Size");
     }
 
     apply(element, size) {

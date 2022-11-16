@@ -1,6 +1,6 @@
 class SingleTextInputElementData extends ElementData {
-    constructor(initValue, renderClass, inputLabel) {
-        super(initValue, renderClass);
+    constructor(initValue, renderClass, inputLabel, name) {
+        super(initValue, renderClass, name);
         this.inputLabel = inputLabel;
     }
 

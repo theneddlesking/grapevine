@@ -1,5 +1,5 @@
 class ElementProperty extends ElementData {
-    constructor(initValue) {
-        super(initValue, RenderedProperty);
+    constructor(initValue, name = "Unnamed Property") {
+        super(initValue, RenderedProperty, name);
     }
 }

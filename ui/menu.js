@@ -2,16 +2,20 @@ const ElementSelect = document.getElementById("element-select");
 const AddButton = document.getElementById("add-button");
 const SideMenu = document.getElementById("side-menu");
 
-const populateElementSelect = () => {
-    const createElementOption = (element) => {
+const populateSelect = (array, selectElement, textProp = "name") => {
+    const createOption = (element) => {
         const option = document.createElement("option");
-        option.textContent = element.name;
-        option.value = element.name;
+        option.textContent = element[textProp];
+        option.value = element[textProp];
 
-        ElementSelect.appendChild(option);
+        selectElement.appendChild(option);
     }
 
-    KnownElements.forEach(element => createElementOption(element));
+    array.forEach(item => createOption(item));
+}
+
+const populateElementSelect = () => {
+    populateSelect(KnownElements, ElementSelect); 
 }
 
 populateElementSelect();

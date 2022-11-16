@@ -1,6 +1,6 @@
 class NativeProperty extends SingleTextInputElementData {
     constructor(inputLabel, value) {
-        super(value, RenderedProperty, inputLabel);
+        super(value, RenderedProperty, inputLabel, inputLabel);
     }
 
     setElementToDefault(element) {

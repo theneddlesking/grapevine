@@ -1,6 +1,6 @@
 class NativeStyle extends SingleTextInputElementData {
-    constructor(inputLabel, value) {
-        super(value, RenderedStyle, inputLabel);
+    constructor(inputLabel, value = "") {
+        super(value, RenderedStyle, inputLabel, inputLabel);
     }
 
     setElementToDefault(element) {

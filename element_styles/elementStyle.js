@@ -1,5 +1,5 @@
 class ElementStyle extends ElementData {
-    constructor(initValue) {
-        super(initValue, RenderedStyle);
+    constructor(initValue, name = "Unnamed Style") {
+        super(initValue, RenderedStyle, name);
     }
 }
