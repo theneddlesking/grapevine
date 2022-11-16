@@ -26,14 +26,8 @@ class Element {
 
         //element obj after being rendered
         const renderedElement = new RenderedElement(this.name, this.properties, this.styles, this.scripts, element, this.parent);
-
-        //make the element draggable so it can be positioned by the user
-        draggable(element, renderedElement);
-
+        
         this.parent.addChild(renderedElement);
-
-        //give current app scope over the element
-        // MyClient.currentApp.addElement(renderedElement);
     }
 
     removeChild(element) {

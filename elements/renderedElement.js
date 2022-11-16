@@ -20,6 +20,8 @@ class RenderedElement {
 
         this.parent = parent;
 
+        this.rootElement = parent == MyClient.currentApp;
+
         this.init();
     }
 
@@ -27,6 +29,10 @@ class RenderedElement {
         this.applyProperties();
         this.applyStyles();
         this.applyScripts();
+
+        if (this.rootElement) {
+            this.makeDraggable();
+        }
     }
 
     applyStyles() {
@@ -45,11 +51,14 @@ class RenderedElement {
         openSideMenu(this);
     }
 
-    //TEMPORARY
+    //element should only be draggable if it is a direct child
+    makeDraggable() {
+        draggable(this.render, this);
+    }
+
+    //potentially TEMP but I don't think so
+    //TODO: Needs to remove all children as well
     delete() {
-        //remove from render
-        // this.render.parentElement.removeChild(this.render);
-        
         //remove from app tree
         this.parent.removeChild(this);
     }

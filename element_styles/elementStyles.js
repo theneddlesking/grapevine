@@ -8,6 +8,18 @@ class SizeStyle extends ElementStyle {
         element.style.height = size.height + "px";
     }
 
+    setElementToDefault(element) {
+        element.style.width = this.elementDefault.width;
+        element.style.height = this.elementDefault.height;
+    }
+
+    getElementDefault(element) {
+        return {
+            width : "",
+            height : "",
+        }
+    }
+
     render(style) {
         const element = document.createElement("div");
         const input1 = document.createElement("input");

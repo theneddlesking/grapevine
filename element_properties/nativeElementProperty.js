@@ -1,17 +1,17 @@
-class NativeStyle extends SingleTextInputElementData {
+class NativeProperty extends SingleTextInputElementData {
     constructor(inputLabel, value) {
-        super(value, RenderedStyle, inputLabel);
+        super(value, RenderedProperty, inputLabel);
     }
 
     setElementToDefault(element) {
-        element.style[this.getStyleString()] = this.elementDefault;
+        element[this.getPropertyString()] = this.elementDefault;
     }
 
     getElementDefault(element) {
         return "";
     }
 
-    getStyleString() {
+    getPropertyString() {
         const words = this.inputLabel.toLowerCase().split(" ");
 
         let str = "";
@@ -24,7 +24,6 @@ class NativeStyle extends SingleTextInputElementData {
     }   
 
     apply(element, value) {
-        element.style[this.getStyleString()] = value;
+        element[this.getPropertyString()] = value;
     }
 }
-

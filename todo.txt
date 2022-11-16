@@ -1,0 +1,45 @@
+TO MAKE A USABLE UI DESIGN APP I MUST:
+
+-Make add new style button from a list of known styles
+-Add the ability to remove styles
+    > This means that you need to know the original style of the element before application
+    > And you need a reset function per style to reset back to the original style upon deletion
+-Add the ability to group elements together
+-Add serialisation of elements and therefore import, export and save functionality
+-Make home page and multiple app pages
+
+-Make separate element lists
+    > The select currently on the web page should be the list of elements currently
+    in use or was previously used to make the application
+    > Make separate functionality to add already known elements to the app for first time use
+
+-Add functionality to create element list presets and app presets where specific elements
+already are loaded and can be loaded together (ie. Basic Elements, Todo Elements, Schedule Elements)
+
+CONGRATS YOU MADE A USABLE UI DESIGN APP!
+
+TO MAKE A USABLE APP DESIGN APP I MUST:
+
+!!!Add scripts!!!
+
+!!!Make the UI not look like trash!!!
+
+CONGRATS YOU MADE A USABLE APP DESIGN APP!
+
+!!!Add a ton of sample elements, styles and scripts!!!
+
+!!!Make the UI look amazing!!!
+
+CONGRATS YOU MADE AN ACTUALLY PRESENTABLE APP DESIGN APP!
+
+TO MAKE AN ACTUAL USEFUL PRODUCT I MUST:
+
+!!!Add basic accounts!!!
+
+!!!Add smart server storage!!!
+
+!!!Add main page with ability to see and share other elements / apps!!!
+
+!!!Port it!!!
+
+CONGRATS YOU MADE AN ACTUAL USEFUL PRODUCT HOW!

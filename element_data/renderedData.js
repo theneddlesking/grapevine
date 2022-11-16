@@ -4,8 +4,21 @@ class RenderedData {
         this.defaultData = defaultData;
         this.element = element;
 
-        //init data
+        //get current element default (so if style / prop is removed the element default can be reset)
+        this.elementDefault = this.getElementDefault(element, value, defaultData);
+
+        //set new element default
         this.setData(this.value);
+    }
+
+    //required so that styles & properties can be consistently unapplied
+    setElementToDefault(element, defaultData) {
+        this.defaultData.setElementToDefault(element, defaultData);
+    }
+
+    //required so that styles & properties can be consistently unapplie
+    getElementDefault(element, defaultData) {
+        return this.defaultData.getElementDefault(element, defaultData);
     }
 
     renderOnSideMenu(renderedElement) {
