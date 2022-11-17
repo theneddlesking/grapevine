@@ -56,17 +56,17 @@ class RenderedElement {
 
     applyProperty(property) {
         this.names.properties.add(property.name);
-        property.init(this.render, this.properties);
+        property.init(this.render, this.properties, this.names.properties);
     }
 
     applyScript(script) {
         this.names.scripts.add(script.name);
-        script.init(this.render, this.scripts);
+        script.init(this.render, this.scripts, this.names.scripts);
     }
 
     applyStyle(style) {
         this.names.styles.add(style.name);
-        style.init(this.render, this.styles);
+        style.init(this.render, this.styles, this.names.styles);
     }
 
     applyStyles() {

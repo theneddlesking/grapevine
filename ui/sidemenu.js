@@ -8,7 +8,12 @@ const makeSideMenuVisible = (visibility = true) => {
     }
 }
 
-const openSideMenu = (renderedElement) => {
+let currentSideMenuElement = undefined;
+
+const openSideMenu = (renderedElement = currentSideMenuElement) => {
+
+    currentSideMenuElement = renderedElement;
+
     makeSideMenuVisible();
 
     DeleteElementButton.onclick = () => {

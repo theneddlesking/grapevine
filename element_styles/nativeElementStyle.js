@@ -3,8 +3,8 @@ class NativeStyle extends SingleTextInputElementData {
         super(value, RenderedStyle, inputLabel, inputLabel);
     }
 
-    setElementToDefault(element) {
-        element.style[this.getStyleString()] = this.elementDefault;
+    setElementToDefault(element, elementDefault) {
+        element.style[this.getStyleString()] = elementDefault;
     }
 
     getElementDefault(element) {

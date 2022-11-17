@@ -1,6 +1,6 @@
 class RenderedProperty extends RenderedData {
-    constructor(value, property, element) {
-        super(value, property, element);
+    constructor(value, property, element, dataArray, names) {
+        super(value, property, element, dataArray, names);
     }
 
     setProp(value) {
