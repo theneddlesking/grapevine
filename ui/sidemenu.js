@@ -26,7 +26,6 @@ const openSideMenu = (renderedElement = currentSideMenuElement) => {
         DeleteElementButton.onclick = null;
     }
 
-
     //PROPERTIES
 
     const elementProps = document.getElementById("props-list");
@@ -36,6 +35,8 @@ const openSideMenu = (renderedElement = currentSideMenuElement) => {
     for (let prop of renderedElement.properties) {
         elementProps.appendChild(prop.renderOnSideMenu(renderedElement));
     }
+
+    addElementData(renderedElement, KnownProperties, "property", elementProps);
 
     //STYLES
 
@@ -47,27 +48,39 @@ const openSideMenu = (renderedElement = currentSideMenuElement) => {
         elementStyles.appendChild(style.renderOnSideMenu(renderedElement));
     }
 
-    const StyleSelect = document.getElementById("style-select");
-    const AddStyleButton = document.getElementById("add-style-button");
+    addElementData(renderedElement, KnownStyles, "style", elementStyles);
+}
 
-    StyleSelect.innerHTML = `<option value="">Select a style</option>`;
+const addElementData = (renderedElement, known, type, dataListElement) => {
+    const DataSelect = document.getElementById(`${type}-select`);
+    const AddDataButton = document.getElementById(`add-${type}-button`);
 
-    const missingStyles = renderedElement.getMissingStyles(KnownStyles);
+    DataSelect.innerHTML = `<option value="">Select a ${type}</option>`;
 
-    populateSelect(missingStyles, StyleSelect);
+    const missingData = renderedElement.getMissingData(known, type);
 
-    AddStyleButton.onclick = () => {
-        const style = missingStyles[StyleSelect.selectedIndex - 1];
+    populateSelect(missingData, DataSelect);
 
-        if (renderedElement.hasStyle(style) || style === undefined) {
+    AddDataButton.onclick = () => {
+        //first option is a helper option that should not be selected
+        if (DataSelect.selectedIndex == 0) {
             return;
         }
 
-        renderedElement.applyStyle(style);
-        //re render with new style added
-        elementStyles.appendChild(renderedElement.styles[renderedElement.styles.length - 1].renderOnSideMenu(renderedElement));
-    }
 
+        const data = missingData[DataSelect.selectedIndex - 1];
+
+        if (renderedElement.hasData(data, type) || data === undefined) {
+            return;
+        }
+
+        renderedElement.applyData(data, type);
+
+        const dataArray = renderedElement.getDataArray(type);
+
+        //re render with new style added
+        dataListElement.appendChild(dataArray[dataArray.length - 1].renderOnSideMenu(renderedElement));
+    }
 }
 
 const setSideMenuContent = (contentName) => {

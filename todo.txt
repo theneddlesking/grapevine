@@ -1,9 +1,10 @@
 TO MAKE A USABLE UI DESIGN APP I MUST:
 
--Make add new style button from a list of known styles
--Add the ability to remove styles
-    > This means that you need to know the original style of the element before application
-    > And you need a reset function per style to reset back to the original style upon deletion
+    -Make add new style button from a list of known styles
+    -Add the ability to remove styles
+        > This means that you need to know the original style of the element before application
+        > And you need a reset function per style to reset back to the original style upon deletion
+
 -Add the ability to group elements together
 -Add serialisation of elements and therefore import, export and save functionality
 -Make home page and multiple app pages

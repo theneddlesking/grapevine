@@ -46,12 +46,22 @@ class RenderedElement {
         }
     }
 
-    getMissingStyles(known) {
-        return known.filter(style => !this.hasStyle(style));
+    applyData(data, type) {
+        if (type == "style") this.applyStyle(data);
+        if (type == "script") this.applyScript(data);
+        if (type == "property") this.applyProperty(data);
     }
 
-    hasStyle(style) {
-        return this.names.styles.has(style.name);
+    getDataArray(type) {
+        return type == "property" ? this.properties : this[`${type}s`];
+    }
+
+    getMissingData(known, type) {
+        return known.filter(item => !this.hasData(item, type));
+    }
+
+    hasData(data, type) {
+        return type == "property" ? this.names.properties.has(data.name) : this.names[`${type}s`].has(data.name);
     }
 
     applyProperty(property) {

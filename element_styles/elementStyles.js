@@ -8,9 +8,9 @@ class SizeStyle extends ElementStyle {
         element.style.height = size.height + "px";
     }
 
-    setElementToDefault(element) {
-        element.style.width = this.elementDefault.width;
-        element.style.height = this.elementDefault.height;
+    setElementToDefault(element, elementDefault) {
+        element.style.width = elementDefault.width;
+        element.style.height = elementDefault.height;
     }
 
     getElementDefault(element) {
@@ -27,6 +27,8 @@ class SizeStyle extends ElementStyle {
         const input2 = document.createElement("input");
         const label2 = document.createElement("label");
 
+        const deleteButton = document.createElement("button");
+
         const div1 = document.createElement("div");
         const div2 = document.createElement("div");
 
@@ -37,6 +39,7 @@ class SizeStyle extends ElementStyle {
 
         element.appendChild(div2);
         element.appendChild(div1);
+        element.appendChild(deleteButton);
 
         div2.appendChild(label2);
         div2.appendChild(input2);
@@ -49,12 +52,18 @@ class SizeStyle extends ElementStyle {
         input1.value = style.value.width;
         input2.value = style.value.width;
 
+        deleteButton.textContent = "Delete";
+
         input1.onchange = () => { 
             style.setStyle({ width : input1.value, height : input2.value});
         }
 
         input2.onchange = () => { 
             style.setStyle({ width : input1.value, height : input2.value});
+        }
+
+        deleteButton.onclick = () => {
+            style.removeFromElement();
         }
 
         return element;
