@@ -20,8 +20,10 @@ class RenderedElement {
         //RENDERED scripts
         this.scripts = scripts;
 
+        //rendered HTML
         this.render = render;
 
+        //parent (as an Element obj)
         this.parent = parent;
 
         this.rootElement = parent == MyClient.currentApp;
@@ -56,6 +58,7 @@ class RenderedElement {
         return type == "property" ? this.properties : this[`${type}s`];
     }
 
+    //maybe could be made less expensive (but not 100% sure and prolly not worth)
     getMissingData(known, type) {
         return known.filter(item => !this.hasData(item, type));
     }

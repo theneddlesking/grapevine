@@ -57,6 +57,8 @@ const addElementData = (renderedElement, known, type, dataListElement) => {
 
     DataSelect.innerHTML = `<option value="">Select a ${type}</option>`;
 
+    //only give option to add missing data to element that isn't already added
+    //eg. can't add border style to an element that already has a border
     const missingData = renderedElement.getMissingData(known, type);
 
     populateSelect(missingData, DataSelect);
@@ -67,9 +69,10 @@ const addElementData = (renderedElement, known, type, dataListElement) => {
             return;
         }
 
-
+        //grab the element data template to be applied to the rendered element
         const data = missingData[DataSelect.selectedIndex - 1];
 
+        //secondary check to stop double application of data (in case of altered UI)
         if (renderedElement.hasData(data, type) || data === undefined) {
             return;
         }
@@ -78,7 +81,7 @@ const addElementData = (renderedElement, known, type, dataListElement) => {
 
         const dataArray = renderedElement.getDataArray(type);
 
-        //re render with new style added
+        //re render of side menu after new element data is added
         dataListElement.appendChild(dataArray[dataArray.length - 1].renderOnSideMenu(renderedElement));
     }
 }

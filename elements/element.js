@@ -16,7 +16,7 @@ class Element {
         //parent element
         this.parent = parent;
 
-        //child elements
+        //child elements (they are the literal children in DOM also)
         this.children = [];
     }
 
@@ -34,6 +34,9 @@ class Element {
         for (let index in this.children) {
             const child = this.children[index];
             if (child === element) {
+
+                //TODO: child should also remove all of its children (maybe not necessary but almost certainly is)
+
                 this.children.splice(index, 1);
                 this.render.removeChild(element.render);
                 return;
